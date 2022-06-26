@@ -1,5 +1,6 @@
 package com.practica01.controller;
 
+import com.practica01.service.ClienteService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,10 +14,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 @Slf4j
 public class indexcontroller {
-
+    @Autowired
+    private ClienteService clienteService;
     @GetMapping("/")
     public String Inicio(Model model) {
         log.info("Ahora utilizamos MVC");
+        
+        var clientes = clienteService.getClientes();
+        model.addAttribute("clientes", clientes);
 
 //        var clientes = clienteService.getClientes();
 //        model.addAttribute("clientes", clientes);

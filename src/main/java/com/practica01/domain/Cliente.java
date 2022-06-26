@@ -16,7 +16,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="cliente")
+@Table(name="estado")
 
 public class Cliente implements Serializable{
     
@@ -24,22 +24,25 @@ public class Cliente implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idCliente; //Si lo ponemos asi idCliente lo que pasa que esa C en mauscula pasaa minuscula
+    private Long idEstado; //Si lo ponemos asi idCliente lo que pasa que esa C en mauscula pasaa minuscula
                             //y sepone un guio entonces queda asi id_cliente
     String nombre;
-    String apellidos;
-    String correo;
-    String telefono;
+    String capital;
+    String poblacion;
+    String idioma;
 
     public Cliente() {
     }
 
-    public Cliente(String nombre, String apellidos, String correo, String telefono) {
+    public Cliente(Long idEstado, String nombre, String capital, String poblacion, String idioma) {
+        this.idEstado = idEstado;
         this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.correo = correo;
-        this.telefono = telefono;
+        this.capital = capital;
+        this.poblacion = poblacion;
+        this.idioma = idioma;
     }
+
+    
     
     
 }
